@@ -1,0 +1,29 @@
+{
+  "name": "android-media-autoplay",
+  "version": "1.0.7",
+  "authors": [
+    "Manuel Braun <mb@w69b.com>"
+  ],
+  "description": "Workaround for https://crbug.com/178297",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "android",
+    "audio",
+    "video"
+  ],
+  "main": "android-media-autoplay.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/android-media-autoplay/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}
