@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../android-media-autoplay.html">
+  </head>
+  <body>
+
+    <test-fixture id="audio-element-fixture">
+    <template>
+    <audio is="android-audio-autoplay" src="../demo/beep.ogg"></audio>
+    </template>
+    </test-fixture>
+
+    <test-fixture id="video-element-fixture">
+    <template>
+    <video is="android-video-autoplay" src="../demo/beep.ogg"></video>
+    </template>
+    </test-fixture>
+
+    <script>
+
+      ['video', 'audio'].forEach(function(base) {
+        suite('<android-' + base +'-autoplay>', function() {
+
+          var el;
+
+          setup(function() {
+            el = fixture(base + '-element-fixture');
+          });
+
+          test('should call play on first touch and restore original src', function() {
+            var oldSrc = el.src;
+            var calledPlay = false;
+            el.play = function() {
+              calledPlay = true;
+              assert.notEqual(el.src, oldSrc);
+            };
+            document.dispatchEvent(new Event('touchstart'));
+            assert(calledPlay);
+            assert.equal(el.src, oldSrc);
+          });
+
+        });
+      });
+
+    </script>
+
+  </body>
+</html>
