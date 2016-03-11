@@ -1,6 +1,22 @@
 # android-media-autoplay
 
-An element providing a starting point for your own reusable Polymer elements.
+Workaround for https://crbug.com/178297 (HTMLMediaElement.play() can only be
+initiated by a user gesture on Android). Attaches a capturing event listener to
+document that calls play() with an empty src. This allows to future play()
+calls without direct user interaction.
+
+
+Example:
+
+    <audio is="android-audio-autoplay" src="beep.ogg"></audio>
+    <video is="android-video-autoplay" src="foo.webm"></audio>
+
+    <script>
+      // Works outside of user-interaction event handlers if there was some
+      // user-interaction with the page first.
+      document.querySelector('audio').play();
+      document.querySelector('video').play();
+    </script>
 
 
 ## Dependencies
@@ -18,7 +34,7 @@ Then, go ahead and download the element's dependencies:
 ## Linting Your Element
 
 If you wish to lint your element, we recommend that you use
-[Polylint](https://github.com/PolymerLabs/polylint) to take into account Polymer 
+[Polylint](https://github.com/PolymerLabs/polylint) to take into account Polymer
 linting specificities. You can install it via:
 
     npm install -g polylint
@@ -31,7 +47,7 @@ If your element contains errors, they will appear on the console.
 
 Note that it is possible to use `Polylint` with Atom and Sublime with the appropriate package/plugin.
 
-For more options regarding `polylint`, please refer to the 
+For more options regarding `polylint`, please refer to the
 [documentation](https://github.com/PolymerLabs/polylint#polylint).
 
 
