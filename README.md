@@ -5,18 +5,7 @@ initiated by a user gesture on Android). Attaches a capturing event listener to
 document that calls play() with an empty src. This allows to future play()
 calls without direct user interaction.
 
-
-Example:
-
-    <audio is="android-audio-autoplay" src="beep.ogg"></audio>
-    <video is="android-video-autoplay" src="foo.webm"></audio>
-
-    <script>
-      // Works outside of user-interaction event handlers if there was some
-      // user-interaction with the page first.
-      document.querySelector('audio').play();
-      document.querySelector('video').play();
-    </script>
+[Docs and Demo](https://schibum.github.io/android-media-autoplay)
 
 
 ## Dependencies
