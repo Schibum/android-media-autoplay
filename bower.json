@@ -6,7 +6,7 @@
   ],
   "description": "Workaround for https://crbug.com/178297",
   "keywords": [
-    "web-component",
+    "web-components",
     "polymer",
     "android",
     "audio",
