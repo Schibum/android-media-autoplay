@@ -1,4 +1,4 @@
-# android-media-autoplay
+# android-media-autoplay = An amazing Project
 
 Workaround for https://crbug.com/178297 (HTMLMediaElement.play() can only be
 initiated by a user gesture on Android). Attaches a capturing event listener to
